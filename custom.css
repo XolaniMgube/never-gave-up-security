@@ -6,8 +6,8 @@ body {
   min-height: 65vh;
   background-image:
     /* overlay gradient: black on left → white on right */
-    linear-gradient(to right, rgba(0,0,0,0.7), rgba(255,255,255,0.2)),
-    url("../images/background.png");
+    /* linear-gradient(to right, rgba(0, 0, 0, 0.877), rgba(0, 0, 0, 0)), */
+    url("../images/background4.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -40,11 +40,13 @@ body {
 
 .contact-section {
   /* Gradient from dark black → subtle dark gray → dark red tint */
-  background: linear-gradient(
-      135deg,
-      rgba(0, 0, 0, 0.9) 0%,      /* dark left */
-      rgba(30, 30, 30, 0.85) 50%, /* mid gray */
-      rgba(196, 0, 0, 0.4) 100%   /* subtle brand red on right */
+  background: linear-gradient(135deg,
+      rgba(0, 0, 0, 0.9) 0%,
+      /* dark left */
+      rgba(30, 30, 30, 0.85) 50%,
+      /* mid gray */
+      rgba(196, 0, 0, 0.4) 100%
+      /* subtle brand red on right */
     );
   background-size: cover;
   background-position: center;
@@ -54,53 +56,63 @@ body {
 
 
 .contact-section i {
-  color: #c40000; /* icons in brand red */
+  color: #c40000;
+  /* icons in brand red */
 }
 
-.contact-section p, 
+.contact-section p,
 .contact-section h5 {
-  color: #fff; /* white text for readability */
+  color: #fff;
+  /* white text for readability */
 }
 
 .contact-section .btn-success {
-  background-color: #25D366; /* WhatsApp green */
+  background-color: #25D366;
+  /* WhatsApp green */
   border: none;
 }
 
 .contact-section .social-links a:hover {
-  color: #c40000; /* red hover effect */
+  color: #c40000;
+  /* red hover effect */
 }
+
+.gallery-img {
+    margin: 12px 0;          /* space top & bottom */
+    display: block;
+  }
 
 
 /* =====================
    GALLERY
 ===================== */
-
+/* 
 .gallery-wrapper {
   overflow-x: auto;
   overflow-y: hidden;
   scroll-behavior: smooth;
   width: 100%;
-}
+} */
 
 /* hide scrollbar */
-.gallery-wrapper::-webkit-scrollbar {
+/* .gallery-wrapper::-webkit-scrollbar {
   display: none;
 }
 
 .gallery-track {
   display: flex;
   gap: 16px;
-}
+} */
 
-.gallery-img {
-  flex: 0 0 calc(33.333% - 12px); /* 3 images desktop */
+/* .gallery-img {
+  flex: 0 0 calc(33.333% - 12px);
+  3 images desktop
   max-width: calc(33.333% - 12px);
   border-radius: 8px;
-}
+} */
 
 /* ARROW BUTTONS */
-.gallery-btn {
+/* .gallery-btn {
   position: absolute;
   top: 55%;
   transform: translateY(-50%);
@@ -114,9 +126,9 @@ body {
   cursor: pointer;
   z-index: 10;
   opacity: 0.85;
-}
+} */
 
-.gallery-btn:hover {
+/* .gallery-btn:hover {
   opacity: 1;
 }
 
@@ -126,32 +138,128 @@ body {
 
 .gallery-btn.right {
   right: -20px;
+} */
+
+
+
+
+
+/* =========================
+   NAVBAR – MOBILE ONLY
+========================= */
+@media (max-width: 991px) {
+
+  /* Prevent items from wrapping */
+  .navbar .container {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+  }
+
+  /* Logo smaller */
+  .navbar img {
+    width: 45px !important;
+    height: auto;
+  }
+
+  /* Company name smaller + tighter */
+  .navbar h3 {
+    font-size: 1rem;
+    margin: 0 8px;
+    white-space: nowrap;
+  }
+
+  /* Make "Never Gave Up Security" feel shorter visually */
+  .navbar h3 span {
+    font-size: 0.95rem;
+  }
+
+  /* Hamburger button smaller */
+  .navbar-toggler {
+    padding: 4px 8px;
+    font-size: 0.9rem;
+  }
+
+  .navbar-toggler-icon {
+    width: 1.2em;
+    height: 1.2em;
+  }
+
+  
 }
+
+
+/* =========================
+   FORCE MOBILE MENU TO DROP BELOW BRAND
+========================= */
+@media (max-width: 991px) {
+
+  /* Ensure navbar container can wrap */
+  .navbar > .container {
+    flex-wrap: wrap !important;
+  }
+
+  /* Force the collapsed menu onto a new line */
+  .navbar-collapse {
+    flex-basis: 100%;
+    width: 100%;
+  }
+
+  /* Reset alignment inherited from desktop */
+  .navbar-nav {
+    margin-left: 0 !important;
+    align-items: stretch !important;
+    text-align: left;
+  }
+
+  /* Full-width menu items */
+  .navbar-nav .nav-item {
+    width: 100%;
+  }
+
+  /* Full-width links */
+  .navbar-nav .nav-link {
+    width: 100%;
+    padding: 12px 16px;
+  }
+
+  /* Full-width call button */
+  .navbar-nav .btn {
+    width: 100%;
+    margin-top: 10px;
+    text-align: center;
+  }
+}
+
+
+
+
+
 
 /* MOBILE */
 @media (max-width: 768px) {
   .gallery-img {
-    flex: 0 0 80%;
-    max-width: 80%;
+    flex: 0 0 90%;
+    max-width: 90%;
   }
 
-  .gallery-btn.left {
-    left: 5px;
+  .gallery-track {
+    justify-content: center; /* center images horizontally */
   }
 
-  .gallery-btn.right {
-    right: 5px;
-  }
-}
+  
 
-
-
-@media (max-width: 768px) {
   .contact-section .text-md-start {
     text-align: center !important;
   }
+
   .contact-section .text-md-end {
     text-align: center !important;
   }
-}
 
+  .hero-section {
+    background-position: right;
+  }
+
+
+}
