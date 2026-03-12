@@ -1,152 +1,111 @@
+/* =================================
+   GLOBAL STYLES
+================================= */
+
 body {
   background-color: #0b0b0b;
 }
-
-.hero-section {
-  min-height: 65vh;
-  background-image:
-    /* overlay gradient: black on left → white on right */
-    /* linear-gradient(to right, rgba(0, 0, 0, 0.877), rgba(0, 0, 0, 0)), */
-    url("../images/background-image.gif");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-
-
-/* .officer {
-    height: 60vh;
-} */
-
-.hero-img {
-  /* max-width: 300px; */
-}
-
-/* SERVICES */
-.service-card {
-  border: none;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
-}
-
-/* CONTACT */
-/* .contact-section {
-  background: linear-gradient(to right, #000, #111);
-} */
 
 /* NAV BORDER FIX */
 .border-danger {
   border-color: #c40000 !important;
 }
 
-.contact-section {
-  /* Gradient from dark black → subtle dark gray → dark red tint */
-  background: linear-gradient(135deg,
-      rgba(0, 0, 0, 0.9) 0%,
-      /* dark left */
-      rgba(30, 30, 30, 0.85) 50%,
-      /* mid gray */
-      rgba(196, 0, 0, 0.4) 100%
-      /* subtle brand red on right */
-    );
+
+
+/* =================================
+   HERO SECTION
+================================= */
+
+.hero-section {
+  position: relative;
+  min-height: 65vh;
+  background-image: url("../images/background-image.gif");
   background-size: cover;
   background-position: center;
-  position: relative;
-  color: #fff;
-}
-
-
-.contact-section i {
-  color: #c40000;
-  /* icons in brand red */
-}
-
-.contact-section p,
-.contact-section h5 {
-  color: #fff;
-  /* white text for readability */
-}
-
-.contact-section .btn-success {
-  background-color: #25D366;
-  /* WhatsApp green */
-  border: none;
-}
-
-.contact-section .social-links a:hover {
-  color: #c40000;
-  /* red hover effect */
-}
-
-.gallery-img {
-    margin: 12px 0;          /* space top & bottom */
-    display: block;
-  }
-
-
-/* =====================
-   GALLERY
-===================== */
-/* 
-.gallery-wrapper {
-  overflow-x: auto;
-  overflow-y: hidden;
-  scroll-behavior: smooth;
-  width: 100%;
-} */
-
-/* hide scrollbar */
-/* .gallery-wrapper::-webkit-scrollbar {
-  display: none;
-}
-
-.gallery-track {
+  background-repeat: no-repeat;
   display: flex;
-  gap: 16px;
-} */
+  align-items: center;
+}
 
-/* .gallery-img {
-  flex: 0 0 calc(33.333% - 12px);
-  3 images desktop
-  max-width: calc(33.333% - 12px);
-  border-radius: 8px;
-} */
+/* Overlay for readability */
 
-/* ARROW BUTTONS */
-/* .gallery-btn {
+.hero-overlay {
   position: absolute;
-  top: 55%;
-  transform: translateY(-50%);
-  background: #000;
-  color: #fff;
-  border: none;
-  width: 45px;
-  height: 45px;
-  border-radius: 50%;
-  font-size: 22px;
-  cursor: pointer;
-  z-index: 10;
-  opacity: 0.85;
-} */
-
-/* .gallery-btn:hover {
-  opacity: 1;
+  inset: 0;
+  background: linear-gradient(to right,
+      rgba(0, 0, 0, 0.85),
+      rgba(0, 0, 0, 0.55),
+      rgba(0, 0, 0, 0.2));
 }
 
-.gallery-btn.left {
-  left: -20px;
+/* Content layer */
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  color: white;
 }
 
-.gallery-btn.right {
-  right: -20px;
-} */
+/* Badge */
 
+.hero-badge {
+  font-size: 0.75rem;
+  letter-spacing: 2px;
+  font-weight: 600;
+  color: #ff4b4b;
+}
 
+/* Title */
 
+.hero-title {
+  font-size: 3rem;
+  font-weight: 800;
+  line-height: 1.2;
+}
 
+/* Highlight word */
 
-/* =========================
-   NAVBAR – MOBILE ONLY
-========================= */
+.hero-highlight {
+  color: #ff4b4b;
+}
+
+/* Subtitle */
+
+.hero-subtitle {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.85);
+  max-width: 520px;
+}
+
+/* Buttons */
+
+.hero-btn-primary {
+  background: #e63946;
+  color: white;
+  padding: 14px 32px;
+  border-radius: 6px;
+  font-weight: 600;
+}
+
+.hero-btn-primary:hover {
+  background: #c62828;
+}
+
+.hero-btn-secondary {
+  border: 2px solid white;
+  color: white;
+  padding: 14px 28px;
+  border-radius: 6px;
+  font-weight: 600;
+}
+
+.hero-btn-secondary:hover {
+  background: white;
+  color: black;
+}
+
+/* NAVBAR – MOBILE ADJUSTMENTS */
 @media (max-width: 991px) {
 
   /* Prevent items from wrapping */
@@ -162,19 +121,18 @@ body {
     height: auto;
   }
 
-  /* Company name smaller + tighter */
+  /* Company name smaller */
   .navbar h3 {
     font-size: 1rem;
     margin: 0 8px;
     white-space: nowrap;
   }
 
-  /* Make "Never Gave Up Security" feel shorter visually */
   .navbar h3 span {
     font-size: 0.95rem;
   }
 
-  /* Hamburger button smaller */
+  /* Hamburger smaller */
   .navbar-toggler {
     padding: 4px 8px;
     font-size: 0.9rem;
@@ -185,45 +143,31 @@ body {
     height: 1.2em;
   }
 
-  
-}
-
-
-/* =========================
-   FORCE MOBILE MENU TO DROP BELOW BRAND
-========================= */
-@media (max-width: 991px) {
-
-  /* Ensure navbar container can wrap */
-  .navbar > .container {
+  /* Force mobile menu below brand */
+  .navbar>.container {
     flex-wrap: wrap !important;
   }
 
-  /* Force the collapsed menu onto a new line */
   .navbar-collapse {
     flex-basis: 100%;
     width: 100%;
   }
 
-  /* Reset alignment inherited from desktop */
   .navbar-nav {
     margin-left: 0 !important;
     align-items: stretch !important;
     text-align: left;
   }
 
-  /* Full-width menu items */
   .navbar-nav .nav-item {
     width: 100%;
   }
 
-  /* Full-width links */
   .navbar-nav .nav-link {
     width: 100%;
     padding: 12px 16px;
   }
 
-  /* Full-width call button */
   .navbar-nav .btn {
     width: 100%;
     margin-top: 10px;
@@ -231,23 +175,171 @@ body {
   }
 }
 
-
-
-
-
-
-/* MOBILE */
 @media (max-width: 768px) {
+  .hero-section {
+    background-position: 95% !important;
+  }
+
+}
+
+
+
+/* =================================
+   2. ABOUT US SECTION
+================================= */
+
+.about-section {
+  background: #f8f9fa;
+}
+
+.section-badge {
+  font-size: 0.8rem;
+  letter-spacing: 2px;
+  font-weight: 600;
+  color: #c40000;
+}
+
+.section-title {
+  font-weight: 700;
+  font-size: 2.2rem;
+  line-height: 1.3;
+}
+
+.about-section p {
+  color: #555;
+  line-height: 1.7;
+}
+
+/* CTA CARD */
+
+.about-cta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #ffffff;
+  border-radius: 10px;
+  padding: 20px 25px;
+  margin-top: 25px;
+  border: 1px solid #eee;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
+}
+
+.cta-label {
+  font-size: 0.75rem;
+  letter-spacing: 1px;
+  color: #c40000;
+  font-weight: 600;
+}
+
+.about-cta h5 {
+  margin: 0;
+  font-weight: 600;
+}
+
+/* LOGO */
+
+.about-logo-wrapper {
+  background: white;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+}
+
+.about-logo {
+  max-width: 280px;
+}
+
+/* ABOUT MOBILE */
+
+@media (max-width: 768px) {
+
+  .about-cta {
+    flex-direction: column;
+    text-align: center;
+    gap: 15px;
+  }
+
+  .about-logo-wrapper {
+    margin-top: 30px;
+  }
+
+}
+
+
+
+/* =================================
+   3. SERVICES SECTION
+================================= */
+
+.service-card {
+  border: none;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+
+
+/* =================================
+   4. GALLERY SECTION
+================================= */
+
+.gallery-img {
+  margin: 12px 0;
+  display: block;
+}
+
+@media (max-width: 768px) {
+
   .gallery-img {
     flex: 0 0 90%;
     max-width: 90%;
   }
 
   .gallery-track {
-    justify-content: center; /* center images horizontally */
+    justify-content: center;
   }
 
-  
+}
+
+
+
+/* =================================
+   5. CONTACT SECTION
+================================= */
+
+.contact-section {
+
+  background: linear-gradient(135deg,
+      rgba(0, 0, 0, 0.9) 0%,
+      rgba(30, 30, 30, 0.85) 50%,
+      rgba(196, 0, 0, 0.4) 100%);
+
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  color: #fff;
+}
+
+.contact-section i {
+  color: #c40000;
+}
+
+.contact-section p,
+.contact-section h5 {
+  color: #fff;
+}
+
+.contact-section .btn-success {
+  background-color: #25D366;
+  border: none;
+}
+
+.contact-section .social-links a:hover {
+  color: #c40000;
+}
+
+/* CONTACT MOBILE */
+
+@media (max-width: 768px) {
 
   .contact-section .text-md-start {
     text-align: center !important;
@@ -256,10 +348,5 @@ body {
   .contact-section .text-md-end {
     text-align: center !important;
   }
-
-  .hero-section {
-    background-position: right;
-  }
-
 
 }
